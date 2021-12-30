@@ -8,15 +8,22 @@ async function run(): Promise<void> {
     const sk = core.getInput('secret_key');
     const bucket = core.getInput('bucket');
     const sourceDir = core.getInput('source_dir');
+    const exclude = core.getInput('exclude');
     const destDir = core.getInput('dest_dir');
     const ignoreSourceMap = core.getInput('ignore_source_map') === 'true';
 
     const token = genToken(bucket, ak, sk);
+    let excludes = [] as string[];
+
+    if (exclude) {
+      excludes = exclude.split(',').map((value) => value.trim());
+    }
 
     upload(
       token,
       sourceDir,
       destDir,
+      excludes,
       ignoreSourceMap,
       (file, key) => core.info(`Success: ${file} => [${bucket}]: ${key}`),
       () => core.info('Done!'),

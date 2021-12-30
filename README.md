@@ -41,6 +41,8 @@ jobs:
         # Whether to ignore source maps.
         # Default: true
         ignore_source_map: true
+        
+        exclude: '/dist/, /node_modules/'
 ```
 
 ## License

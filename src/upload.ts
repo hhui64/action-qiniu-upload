@@ -12,13 +12,14 @@ export function upload(
   token: string,
   srcDir: string,
   destDir: string,
+  excludes: string[],
   ignoreSourceMap: boolean,
   onProgress: (srcFile: string, destFile: string) => void,
   onComplete: () => void,
   onFail: (errorInfo: any) => void,
 ): void {
   const baseDir = path.resolve(process.cwd(), srcDir);
-  const files = glob.sync(`${baseDir}/**/*`, { nodir: true });
+  const files = glob.sync(`${baseDir}/**/*`, { nodir: true, ignore: excludes });
 
   const config = new qiniu.conf.Config();
   const uploader = new qiniu.form_up.FormUploader(config);
