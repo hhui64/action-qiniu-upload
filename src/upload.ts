@@ -24,7 +24,7 @@ export function upload(
   onFail: (errorInfo: any) => void,
 ): void {
   const baseDir = path.resolve(process.cwd(), srcDir);
-  const files = glob.sync(`${baseDir}/**/*`, { nodir: true, ignore: excludes });
+  const files = glob.sync(`${baseDir}/**/*`, { nodir: true, ignore: excludes.map((value) => path.join(baseDir, value)) });
 
   const config = new qiniu.conf.Config();
   const uploader = new qiniu.form_up.FormUploader(config);

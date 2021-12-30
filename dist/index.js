@@ -38887,7 +38887,7 @@ function normalizePath(input) {
 }
 function upload(token, bucket, ak, sk, overwrite, srcDir, destDir, excludes, ignoreSourceMap, onProgress, onComplete, onFail) {
     const baseDir = path_1.default.resolve(process.cwd(), srcDir);
-    const files = glob_1.default.sync(`${baseDir}/**/*`, { nodir: true, ignore: excludes });
+    const files = glob_1.default.sync(`${baseDir}/**/*`, { nodir: true, ignore: excludes.map((value) => path_1.default.join(baseDir, value)) });
     const config = new qiniu_1.default.conf.Config();
     const uploader = new qiniu_1.default.form_up.FormUploader(config);
     const tasks = files.map((file) => {
