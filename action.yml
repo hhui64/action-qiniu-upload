@@ -1,4 +1,4 @@
-name: 'Qiniu Upload'
+name: 'Qiniu Upload File'
 description: 'github action for uploading files to qiniu'
 author: 'Jiulong Hu'
 inputs:
