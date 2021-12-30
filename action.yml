@@ -19,13 +19,17 @@ inputs:
     description: 'dest dir, namely key prefix'
     default: '/'
     required: false
-  # overwrite:
-  #   description: 'overwrite the file of same key in bucket'
-  #   default: true
-  #   required: false
+  overwrite:
+    description: 'overwrite the file of same key in bucket'
+    default: false
+    required: false
   ignore_source_map:
     description: 'ignore source maps'
     default: true
+    required: false
+  exclude:
+    description: 'ignore filename or file path'
+    default: ''
     required: false
 runs:
   using: 'node12'

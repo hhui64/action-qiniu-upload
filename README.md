@@ -43,8 +43,8 @@ jobs:
         ignore_source_map: true
         
         exclude: '/dist/, /node_modules/'
-        
-        overflow: ture
+
+        overwrite: ture
 ```
 
 ## License

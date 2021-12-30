@@ -14,7 +14,7 @@ export function upload(
   bucket: string,
   ak: string,
   sk: string,
-  overflow: boolean,
+  overwrite: boolean,
   srcDir: string,
   destDir: string,
   excludes: string[],
@@ -36,7 +36,7 @@ export function upload(
     if (ignoreSourceMap && file.endsWith('.map')) return null;
 
     const task = (): Promise<any> => new Promise((resolve, reject) => {
-      if (overflow) {
+      if (overwrite) {
         token = genToken(`${bucket}:${key}`, ak, sk);
       }
       const putExtra = new qiniu.form_up.PutExtra();

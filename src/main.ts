@@ -10,7 +10,7 @@ async function run(): Promise<void> {
     const sourceDir = core.getInput('source_dir');
     const exclude = core.getInput('exclude');
     const destDir = core.getInput('dest_dir');
-    const overflow = core.getInput('overflow') === 'true';
+    const overwrite = core.getInput('overwrite') === 'true';
     const ignoreSourceMap = core.getInput('ignore_source_map') === 'true';
 
     const token = genToken(bucket, ak, sk);
@@ -25,7 +25,7 @@ async function run(): Promise<void> {
       bucket,
       ak,
       sk,
-      overflow,
+      overwrite,
       sourceDir,
       destDir,
       excludes,
