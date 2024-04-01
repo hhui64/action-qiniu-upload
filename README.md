@@ -44,6 +44,8 @@ jobs:
         
         exclude: '/dist/, /node_modules/'
 
+        # Overwrite the file of same key in bucket.
+        # Default: false
         overwrite: true
 ```
 
