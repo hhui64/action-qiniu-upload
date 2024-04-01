@@ -44,7 +44,7 @@ jobs:
         
         exclude: '/dist/, /node_modules/'
 
-        overwrite: ture
+        overwrite: true
 ```
 
 ## License
